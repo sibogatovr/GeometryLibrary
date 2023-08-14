@@ -1,0 +1,8 @@
+SELECT p.Name AS ProductName, c.Name AS CategoryName FROM Products p
+JOIN Categories c ON p.CategoryId = c.Id
+WHERE p.CategoryId IS NULL
+UNION
+SELECT p1.Name, c2.Name
+FROM Categories c1
+JOIN Products p2 ON c1.Id = p2.CategoryId
+JOIN Categories c2 ON p2.CategoryId = c2.Id
